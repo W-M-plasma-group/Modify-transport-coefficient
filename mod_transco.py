@@ -30,15 +30,15 @@ withmod = True
 if withmod:
     mod_y = np.zeros(m)
     for j in range(m):
-        if j<= 23:
+        if j<= 26:
             mod_y[j] = cod[j,1]
         else:
-            mod_y[j] = 4.0
+            mod_y[j] = 8.0
     cod[:,1] = mod_y
 
     mod_yki = np.zeros(m)
     for j in range(m):
-        if j<= 30:
+        if j<= 33:
             mod_yki[j] = coki[j,1]  
         else:
             mod_yki[j] = 10.0
@@ -46,7 +46,7 @@ if withmod:
 
     mod_yke = np.zeros(m)
     for j in range(m):
-        if j<= 24:
+        if j<= 25:
             mod_yke[j] = coke[j,1]  
         else:
             mod_yke[j] = 18.0
