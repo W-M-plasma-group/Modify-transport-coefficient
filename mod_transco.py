@@ -26,29 +26,34 @@ yki = coki[:,1]
 yke = coke[:,1]
 
 m = len(yd)
-mod_y = np.zeros(m)
-for j in range(m):
-    if j<= 24:
-        mod_y[j] = cod[j,1]
-    else:
-        mod_y[j] = 8.0
-cod[:,1] = mod_y
+withmod = True
+if withmod:
+    mod_y = np.zeros(m)
+    for j in range(m):
+        if j<= 23:
+            mod_y[j] = cod[j,1]
+        else:
+            mod_y[j] = 4.0
+    cod[:,1] = mod_y
 
-mod_yki = np.zeros(m)
-for j in range(m):
-    if j<= 30:
-        mod_yki[j] = coki[j,1]  
-    else:
-        mod_yki[j] = 10.0
-coki[:,1] = mod_yki
+    mod_yki = np.zeros(m)
+    for j in range(m):
+        if j<= 30:
+            mod_yki[j] = coki[j,1]  
+        else:
+            mod_yki[j] = 10.0
+    coki[:,1] = mod_yki
 
-mod_yke = np.zeros(m)
-for j in range(m):
-    if j<= 24:
-        mod_yke[j] = coke[j,1]  
-    else:
-        mod_yke[j] = 18.0
-coke[:,1] = mod_yke
+    mod_yke = np.zeros(m)
+    for j in range(m):
+        if j<= 24:
+            mod_yke[j] = coke[j,1]  
+        else:
+            mod_yke[j] = 18.0
+    coke[:,1] = mod_yke
+else:
+    pass
+
 
 b = b2tp.Generate(cod, CoeffID=1, SpeciesID=2, M=[1])
 c = b2tp.WriteInputfile(file='b2.transport.inputfile_mod_{}{}'.format(shift, n), points= trans_list ,M_1 = True, M=[1])
